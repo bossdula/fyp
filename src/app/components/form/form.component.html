@@ -1,0 +1,114 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Course List</mat-card-title>
+      <mat-card-subtitle>Select course to evaluate</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="example-action-buttons">
+            <button mat-stroked-button color="primary" (click)="accordion.openAll()"> <mat-icon>expand_more</mat-icon> Expand All</button>
+            <button mat-stroked-button color="primary" (click)="accordion.closeAll()"> <mat-icon>expand_less</mat-icon> Collapse All</button>
+          </div>
+          <mat-accordion class="example-headers-align" multi>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  SEMESTER ONE
+                </mat-panel-title>
+                <mat-panel-description>
+                  <mat-icon> format_list_numbered_rtl</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+          
+              <table class="table table-striped">
+                <thead>
+                    <th>#</th>
+                    <th>CODE</th>
+                    <th>TITLE</th>
+                    <th>INSTRUCTOR</th>
+                    <th>ACTION</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>MT100</td>
+                        <td>Foundation of Analysis</td>
+                        <td>Dr. ------</td>
+                        <td><button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>assessment</mat-icon>Evaluate</button></td> 
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>IS336</td>
+                        <td>Computer Architecture 1</td>
+                        <td>Dr. ------</td>
+                        <td><button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>assessment</mat-icon>Evaluate</button></td> 
+                    </tr>
+                </tbody>
+              </table>
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    SEMESTER TWO
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    <mat-icon> format_list_numbered_rtl</mat-icon>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+                <table class="table table-striped">
+                  <thead>
+                      <th>#</th>
+                      <th>CODE</th>
+                      <th>TITLE</th>
+                      <th>INSTRUCTOR</th>
+                      <th>ACTION</th>
+                  </thead>
+  
+                  <tbody>
+                      <tr>
+                          <td>1</td>
+                          <td>CS124</td>
+                          <td>Information Systems</td>
+                          <td>Dr. -------</td>
+                          <td><button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>assessment</mat-icon>Evaluate</button></td> 
+                      </tr>
+                      <tr>
+                          <td>2</td>
+                          <td>CS236</td>
+                          <td>Business Computer Communication</td>
+                          <td>Dr. --------</td>
+                          <td><button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>assessment</mat-icon>Evaluate</button></td> 
+                      </tr>
+                  </tbody>
+                </table>
+              </mat-expansion-panel>
+
+
+            <!-- <mat-expansion-panel disabled>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Destination
+                </mat-panel-title>
+                <mat-panel-description>
+                  Type the country name
+                  <mat-icon>map</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+          
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </mat-expansion-panel> -->
+
+          </mat-accordion>
+          
+    </mat-card-content>
+
+  </mat-card>

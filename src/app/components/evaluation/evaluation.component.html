@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Course Evaluation Form</h2>
+
+<!-- <mat-dialog-content class="mat-typography"> -->
+    <mat-dialog-content>
+  <form>
+    <!-- PART1 : THE INSTRUCTOR -->
+    <mat-divider></mat-divider>
+    <h3>1: Very poor, 2: Poor, 3: Satisfactory, 4: Very Good, 5: Excellent</h3>
+    <table class="table table-striped">
+        <thead>
+            <th>A. The Instructor</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1. Instructor's preparedeness on the subject matter</td>
+                <td><mat-radio-button value="1"></mat-radio-button></td>
+                <td><mat-radio-button value="2"></mat-radio-button></td>
+                <td><mat-radio-button value="3"></mat-radio-button></td>
+                <td><mat-radio-button value="4"></mat-radio-button></td>
+                <td><mat-radio-button value="5"></mat-radio-button></td>
+            </tr>
+            <tr>
+                <td>2. Instructor's possession of up-to-date skills and knowledge in the subject matter</td>
+                <td><mat-radio-button value="1"></mat-radio-button></td>
+                <td><mat-radio-button value="2"></mat-radio-button></td>
+                <td><mat-radio-button value="3"></mat-radio-button></td>
+                <td><mat-radio-button value="4"></mat-radio-button></td>
+                <td><mat-radio-button value="5"></mat-radio-button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+      
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cancel</button>
+  <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial> <mat-icon>send</mat-icon> Submit</button>
+</mat-dialog-actions>
+
+<!-- <div class="row">
+    <mat-radio-group color="primary" aria-label="Select an option">
+        <mat-label>1. Instructor's preparedeness on the subject matter</mat-label>
+        <mat-radio-button value="1">1</mat-radio-button>
+        <mat-radio-button value="2">2</mat-radio-button>
+        <mat-radio-button value="3">3</mat-radio-button>
+        <mat-radio-button value="4">4</mat-radio-button>
+        <mat-radio-button value="5">5</mat-radio-button>
+    </mat-radio-group>
+</div> -->
+

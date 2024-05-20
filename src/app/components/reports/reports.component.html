@@ -1,0 +1,115 @@
+ <mat-card>
+    <mat-card-header>
+      <mat-card-title>List of Reports</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+<br>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>2024</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <table class="table table-striped mt-5">
+         <thead>
+            <tr>
+                <th>#</th>
+                <th>CODE</th>
+                <th>RATING</th>
+                <th>ACTIONS</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            <tr>
+                <td>1</td>
+                <td>IS335</td>
+                <td><ngb-rating [rate]="5" /></td>
+                <td>
+                    <button 
+                    mat-fab extended 
+                    color="primary"
+                    #tooltip="matTooltip"
+                    matTooltip="Download .pdf file"
+                    matTooltipHideDelay="500">
+                        <mat-icon>save_alt</mat-icon> Download
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>IS321</td>
+                <td><ngb-rating [rate]="4" /></td>
+                <td>
+                    <button 
+                    mat-fab extended 
+                    color="primary"
+                    #tooltip="matTooltip"
+                    matTooltip="Download .pdf file"
+                    matTooltipHideDelay="500">
+                        <mat-icon>save_alt</mat-icon> Download
+                    </button>
+                </td>
+            </tr>
+         </tbody>
+            
+        </table>
+
+    </mat-card-content>
+  </mat-card>
+<br>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>2023</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <table class="table table-striped mt-5">
+                <thead>
+                   <tr>
+                       <th>#</th>
+                       <th>CODE</th>
+                       <th>RATING</th>
+                       <th>ACTIONS</th>
+                   </tr>
+                </thead>
+       
+                <tbody>
+                   <tr>
+                       <td>3</td>
+                       <td>IS321</td>
+                       <td><ngb-rating [rate]="3" /></td>
+                       <td>
+                        <button 
+                        mat-fab extended 
+                        color="primary"
+                        #tooltip="matTooltip"
+                        matTooltip="Download .pdf file"
+                        matTooltipHideDelay="500">
+                        <mat-icon>save_alt</mat-icon> Download
+                        </button>
+                        </td>
+                   </tr>
+       
+                   <tr>
+                       <td>4</td>
+                       <td>IS335</td>
+                       <td><ngb-rating [rate]="4" /></td>
+                       <td>
+                        <button mat-fab extended
+                        color="primary"
+                        #tooltip="matTooltip"
+                        matTooltip="Download .pdf file"
+                        matTooltipHideDelay="500">
+                        <mat-icon>save_alt</mat-icon> Download
+                        </button>
+                        </td>
+                   </tr>
+                </tbody>
+          </table>
+
+    </mat-card-content>
+  </mat-card>

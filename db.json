@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "cc0c",
+      "regNo": "2021-04-00230",
+      "email": "ahmed@gmail.com",
+      "mobile": "000111222",
+      "password": "7890"
+    },
+    {
+      "id": "f0a8",
+      "regNo": "2021-04-00001",
+      "email": "ali@gmail.com",
+      "mobile": "0777777",
+      "password": "67890"
+    },
+    {
+      "id": "965a",
+      "regNo": "2021-04-11519",
+      "email": "abdillah@gmail.com",
+      "mobile": "+255714410140",
+      "password": "1234"
+    }
+  ]
+}
