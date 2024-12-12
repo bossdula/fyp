@@ -47,9 +47,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
-    if (this.authService.ifLoggedIn()) {
-      this.router.navigate(['/home']);
-    }
+    // if (this.authService.ifLoggedIn()) {
+    //   this.router.navigate(['/home']);
+    // }
   }
 
   loginForm = this.fb.group({
@@ -67,48 +67,48 @@ export class LoginComponent implements OnInit {
   loginUser(){
     const {regNo, password} = this.loginForm.value;
     
-    this.authService.getUserByRegNo(regNo as string).subscribe(
-      response => {
-        if(response.length > 0 && response[0].password === password) {
-          sessionStorage.setItem('regNo', regNo as string);
-          this.router.navigateByUrl('home');
+    // this.authService.getUserByRegNo(regNo as string).subscribe(
+    //   response => {
+    //     if(response.length > 0 && response[0].password === password) {
+    //       sessionStorage.setItem('regNo', regNo as string);
+    //       this.router.navigateByUrl('home');
 
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => { 
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
-          });
-          Toast.fire({
-            icon: "success",
-            title: "Login successfully!"
-          });
+    //       const Toast = Swal.mixin({
+    //         toast: true,
+    //         position: "top-end",
+    //         showConfirmButton: false,
+    //         timer: 3000,
+    //         timerProgressBar: true,
+    //         didOpen: (toast) => { 
+    //           toast.onmouseenter = Swal.stopTimer;
+    //           toast.onmouseleave = Swal.resumeTimer;
+    //         }
+    //       });
+    //       Toast.fire({
+    //         icon: "success",
+    //         title: "Login successfully!"
+    //       });
 
-        } else {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
-          });
-          Toast.fire({
-            icon: "error",
-            title: "Invalid credentials"
-          });
-        }
-      },
-      error => console.log(error)
-    )
+    //     } else {
+    //       const Toast = Swal.mixin({
+    //         toast: true,
+    //         position: "top-end",
+    //         showConfirmButton: false,
+    //         timer: 3000,
+    //         timerProgressBar: true,
+    //         didOpen: (toast) => {
+    //           toast.onmouseenter = Swal.stopTimer;
+    //           toast.onmouseleave = Swal.resumeTimer;
+    //         }
+    //       });
+    //       Toast.fire({
+    //         icon: "error",
+    //         title: "Invalid credentials"
+    //       });
+    //     }
+    //   },
+    //   error => console.log(error)
+    // )
   
   }
 

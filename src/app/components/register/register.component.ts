@@ -17,7 +17,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToastService } from '../../shared/services/notify/toast.service';
 import Swal from 'sweetalert2';
-// import { User } from '../../interfaces/auth';
 
 
 @Component({
@@ -59,7 +58,7 @@ export class RegisterComponent implements OnInit{
   registerForm = this.fb.group({
     regNo: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    mobile: ['', Validators.required],
+    mobile: ['', [Validators.required, Validators.maxLength(10)]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     confirmPassword: ['', Validators.required]
   }, {
@@ -72,9 +71,8 @@ export class RegisterComponent implements OnInit{
     const postData = {...this.registerForm.value};
     delete postData.confirmPassword;
 
-    
-
-    this.authService.registerUser(postData as User).subscribe(
+    this.authService.submitForm(postData as any).subscribe(
+    // this.authService.registerUser(postData as User).subscribe(
       response => {
         console.log(response);
         const Toast = Swal.mixin({
