@@ -7,6 +7,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NgbRatingConfig, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reports',
@@ -33,4 +34,14 @@ export class ReportsComponent implements OnInit{
 	}
 
   ngOnInit(): void {}
+
+  downloadReport() {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Download Complete",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
 }

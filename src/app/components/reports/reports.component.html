@@ -17,7 +17,6 @@
             <tr>
                 <th>#</th>
                 <th>CODE</th>
-                <th>RATING</th>
                 <th>ACTIONS</th>
             </tr>
          </thead>
@@ -26,11 +25,11 @@
             <tr>
                 <td>1</td>
                 <td>IS335</td>
-                <td><ngb-rating [rate]="5" /></td>
                 <td>
                     <button 
                     mat-fab extended 
                     color="primary"
+                    (click)="downloadReport()"
                     #tooltip="matTooltip"
                     matTooltip="Download .pdf file"
                     matTooltipHideDelay="500">
@@ -42,11 +41,11 @@
             <tr>
                 <td>2</td>
                 <td>IS321</td>
-                <td><ngb-rating [rate]="4" /></td>
                 <td>
                     <button 
                     mat-fab extended 
                     color="primary"
+                    (click)="downloadReport()"
                     #tooltip="matTooltip"
                     matTooltip="Download .pdf file"
                     matTooltipHideDelay="500">
@@ -72,7 +71,6 @@
                    <tr>
                        <th>#</th>
                        <th>CODE</th>
-                       <th>RATING</th>
                        <th>ACTIONS</th>
                    </tr>
                 </thead>
@@ -81,11 +79,11 @@
                    <tr>
                        <td>3</td>
                        <td>IS321</td>
-                       <td><ngb-rating [rate]="3" /></td>
                        <td>
                         <button 
                         mat-fab extended 
                         color="primary"
+                        (click)="downloadReport()"
                         #tooltip="matTooltip"
                         matTooltip="Download .pdf file"
                         matTooltipHideDelay="500">
@@ -97,10 +95,10 @@
                    <tr>
                        <td>4</td>
                        <td>IS335</td>
-                       <td><ngb-rating [rate]="4" /></td>
                        <td>
                         <button mat-fab extended
                         color="primary"
+                        (click)="downloadReport()"
                         #tooltip="matTooltip"
                         matTooltip="Download .pdf file"
                         matTooltipHideDelay="500">

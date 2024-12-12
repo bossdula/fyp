@@ -1,0 +1,75 @@
+<mat-card appearance="outlined">
+
+    <mat-card-header>
+      <mat-card-title>Course List</mat-card-title>
+      <mat-card-subtitle>List of registered courses</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="openDialog()"><mat-icon>add</mat-icon> Add Course</button>
+    </mat-card-actions>
+
+    <mat-card-content>
+        <mat-chip-set mat-dialog-title aria-label="Total">
+            <mat-chip>Total Courses: </mat-chip>
+            <mat-chip><b>2</b></mat-chip>
+          </mat-chip-set>
+        
+        <table class="table table-striped">
+            <thead>
+                <th>College</th>
+                <th>Department</th>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Class Size</th>
+                <th>Venue</th>
+                <th>Programmes</th>
+                <th>Instructor</th>
+                <th>Action</th>
+            </thead>  
+        
+            <tbody>
+                <!-- first row -->
+                <tr>
+                    <td>COICT</td>
+                    <td>CSE</td>
+                    <td>CS174</td>
+                    <td>Programming in C</td>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>200</td>
+                    <td>D01</td>
+                    <td>CS, CEIT, TE, EE</td>
+                    <td>DR. MASOUD MAHUNDI</td>
+                    <td>
+                        <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button color="warn" (click)="deleteCourse()"><mat-icon>delete</mat-icon></button>
+                    </td>
+                </tr>
+
+                <!-- second row -->
+                <tr>
+                    <td>CONAS</td>
+                    <td>Mathematics</td>
+                    <td>MT100</td>
+                    <td>Foundation of Analysis</td>
+                    <td>I</td>
+                    <td>I</td>
+                    <td>150</td>
+                    <td>YOMBO 2</td>
+                    <td>CS, AS, MS</td>
+                    <td>DR. MLAY</td>
+                    <td>
+                        <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button color="warn" (click)="deleteCourse()"><mat-icon>delete</mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </mat-card-content>
+
+    
+</mat-card>

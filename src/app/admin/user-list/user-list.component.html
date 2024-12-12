@@ -1,0 +1,50 @@
+<mat-card appearance="outlined">
+
+    <mat-card-header>
+      <mat-card-title>Users</mat-card-title>
+      <mat-card-subtitle>List of registered users</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-chip-set mat-dialog-title aria-label="Total">
+            <mat-chip>Total Courses: </mat-chip>
+            <mat-chip><b>2</b></mat-chip>
+          </mat-chip-set>
+
+        <table class="table table-striped">
+            <thead>
+                <th>Reg.#/Staff ID</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Role</th>
+                <th>Action</th>
+            </thead>
+        
+            <tbody>
+                <tr>
+                    <td>2021-04-00230</td>
+                    <td>ahmed&#64;gmail.com</td>
+                    <td>077767777</td>
+                    <td>STUDENT</td>
+                    <td>
+                        <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button color="warn" (click)="deleteUser()"><mat-icon>delete</mat-icon></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>COICT/CSE/0001</td>
+                    <td>masoudmahundi&#64;udsm.ac.tz</td>
+                    <td>2556633455</td>
+                    <td>INSTRUCTOR</td>
+                    <td>
+                        <button mat-icon-button color="primary"><mat-icon>edit</mat-icon></button>
+                        <button mat-icon-button color="warn" (click)="deleteUser()"><mat-icon>delete</mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </mat-card-content>
+
+    
+</mat-card>

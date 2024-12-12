@@ -1,0 +1,78 @@
+<div mat-dialog-title>
+    <h1>Add New Course</h1>
+</div>
+
+<form [formGroup]="courseAddForm" (ngSubmit)="onFormSubmit()">
+    <!-- (ngSubmit)="onFormSubmit()" -->
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>College</mat-label>
+                <mat-select formControlName="college">
+                    <mat-option *ngFor="let val of college" [value]="val">{{val}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Department</mat-label>
+                <input matInput type="text" placeholder="Ex. ETE" formControlName="department">
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Course Code</mat-label>
+                <input matInput type="text" placeholder="Ex. CS246" formControlName="code">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Course Title</mat-label>
+                <input matInput type="text" placeholder="Ex. Computer Networking" formControlName="title">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Lecture Venue</mat-label>
+                <input matInput type="text" placeholder="Ex. B302, Yombo 4" formControlName="venue">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Class Size</mat-label>
+                <input matInput type="number" placeholder="" formControlName="size">
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Semester</mat-label>
+                <mat-select formControlName="semester">
+                    <mat-option *ngFor="let val of semester" [value]="val">{{val}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Year Of Study</mat-label>
+                <mat-select formControlName="year">
+                    <mat-option *ngFor="let val of year" [value]="val">{{val}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Programmes</mat-label>
+                <input matInput type="text" placeholder="Ex. CS, CEIT, BAEST" formControlName="programmes"> 
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Instructor</mat-label>
+                <input matInput type="text" placeholder="Ex. Dr. John Doe" formControlName="instructor"> 
+            </mat-form-field>
+        </div>
+    
+        
+    </div>
+    
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" mat-dialog-close><mat-icon>close</mat-icon> Cancel</button>
+        <button mat-raised-button color="primary" type="submit" ><mat-icon>done</mat-icon> Save</button>
+    </div>
+</form>
+
+

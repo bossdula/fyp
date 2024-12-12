@@ -22,4 +22,18 @@ export class AuthService {
   getUserByRegNo(regNo: string ): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users?regNo=${regNo}`);
   }
+
+  login(userDetails: User) {
+    return this.http.post(`${this.baseUrl}/users`, userDetails);
+  }
+
+  ifLoggedIn(): boolean {
+    if(sessionStorage.getItem('regNo')) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+  
 }

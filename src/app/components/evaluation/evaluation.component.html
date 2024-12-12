@@ -1,58 +1,247 @@
 <h2 mat-dialog-title>Course Evaluation Form</h2>
 
-<!-- <mat-dialog-content class="mat-typography"> -->
-    <mat-dialog-content>
-  <form>
-    <!-- PART1 : THE INSTRUCTOR -->
-    <mat-divider></mat-divider>
-    <h3>1: Very poor, 2: Poor, 3: Satisfactory, 4: Very Good, 5: Excellent</h3>
-    <table class="table table-striped">
-        <thead>
-            <th>A. The Instructor</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-        </thead>
+<mat-chip-set mat-dialog-title aria-label="Grade value">
+  <mat-chip>1- Very Bad</mat-chip>
+  <mat-chip>2- Bad</mat-chip>
+  <mat-chip>3- Satisfactory</mat-chip>
+  <mat-chip>4- Very Good</mat-chip>
+  <mat-chip>5- Excellent</mat-chip>
+</mat-chip-set>
 
-        <tbody>
-            <tr>
-                <td>1. Instructor's preparedeness on the subject matter</td>
-                <td><mat-radio-button value="1"></mat-radio-button></td>
-                <td><mat-radio-button value="2"></mat-radio-button></td>
-                <td><mat-radio-button value="3"></mat-radio-button></td>
-                <td><mat-radio-button value="4"></mat-radio-button></td>
-                <td><mat-radio-button value="5"></mat-radio-button></td>
-            </tr>
-            <tr>
-                <td>2. Instructor's possession of up-to-date skills and knowledge in the subject matter</td>
-                <td><mat-radio-button value="1"></mat-radio-button></td>
-                <td><mat-radio-button value="2"></mat-radio-button></td>
-                <td><mat-radio-button value="3"></mat-radio-button></td>
-                <td><mat-radio-button value="4"></mat-radio-button></td>
-                <td><mat-radio-button value="5"></mat-radio-button></td>
-            </tr>
-        </tbody>
-    </table>
-    
+
+<mat-dialog-content class="mat-typography">
       
-  </form>
+    @switch (stepperOrientation | async) {
+        @case ('horizontal') {
+          <!-- <div>Make your screen smaller to see a vertical stepper</div> -->
+        }
+        @case ('vertical') {
+          <!-- <div>Make your screen larger to see a horizontal stepper</div> -->
+        }
+      }
+      
+      <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!" >
+        
+        <!-- STEP 1 -->
+        <!-- THE INSTRUCTOR -->
+        <mat-step [stepControl]="firstFormGroup" label="The Instructor" [editable]="isEditable">
+          <form [formGroup]="firstFormGroup" (ngSubmit)="submitForm1()">
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q1.Instructor's preparedeness on the subject matter</mat-label>
+                <mat-select formControlName="question1">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q2.Instructor's possession of up-to-date skills and knowledge</mat-label>
+                <mat-select formControlName="question2">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q3. Instructor's mode of delivery of the subject matter</mat-label>
+                <mat-select formControlName="question3">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q4. Instructor's management of time during teaching</mat-label>
+                <mat-select formControlName="question4">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q5. Instructor's fairness in grading of assignments and tests</mat-label>
+                <mat-select formControlName="question5">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q6. Instructor's capacity to provide timely feedback on assignments and test</mat-label>
+                <mat-select formControlName="question6">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q7. Instructor's attendance in the class</mat-label>
+                <mat-select formControlName="question7">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q8. Instructor's availability for consultations</mat-label>
+                <mat-select formControlName="question8">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q9. Way the Instructor interacts with students in the class</mat-label>
+                <mat-select formControlName="question9">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q10. Generally, how do you rate the competency of the Instructor to meet your satisfaction?</mat-label>
+                <mat-select formControlName="question10">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <button
+              mat-raised-button
+              [disabled] = "firstFormGroup.invalid"
+              type="submit"
+              color="primary"
+              matStepperNext><mat-icon>forward</mat-icon>Next
+            </button>
+            </div>
+          </form>
+        </mat-step>
+
+
+        
+        <!-- STEP 2 -->
+        <!-- THE COURSE -->
+        <mat-step [stepControl]="secondFormGroup" (ngSubmit)="submitForm2()" label="The Course" [editable]="isEditable">
+          <form [formGroup]="secondFormGroup">
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q11. How clear was the objective of teh course?</mat-label>
+                <mat-select formControlName="question11">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q12. How well was the course content coverage?</mat-label>
+                <mat-select formControlName="question12">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q13. How well was the mode of assessment? (e.g. test, assignment)</mat-label>
+                <mat-select formControlName="question13">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q14. How well were the teaching methods?</mat-label>
+                <mat-select formControlName="question14">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q15. How well (updated) were the lecturenotes and handouts?</mat-label>
+                <mat-select formControlName="question15">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q16. How well did the course link theory and practice?</mat-label>
+                <mat-select formControlName="question16">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q17. How adequate were the tutorials, seminars or practicals</mat-label>
+                <mat-select formControlName="question17">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="fill">
+                <mat-label>Q18. Generally, how do you rate the relevance of the course to meet your expectations?
+                </mat-label>
+                <mat-select formControlName="question18">
+                    <mat-option *ngFor="let val of rating" [value]="val">{{val}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <button
+              mat-raised-button
+              [disabled] = "secondFormGroup.invalid"
+              color="primary"
+              matStepperNext
+              type="submit">
+              <mat-icon>forward</mat-icon>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+
+
+        <!-- STEP 3 -->
+         <!-- DONE -->
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>Congratulations!</p>
+          <div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [mat-dialog-close]="true" 
+            cdkFocusInitial
+            [disabled] = "firstFormGroup.invalid && secondFormGroup.invalid"><mat-icon>done</mat-icon> Finish</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+      <!-- END OF STEPS -->
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-stroked-button mat-dialog-close>Cancel</button>
-  <button mat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial> <mat-icon>send</mat-icon> Submit</button>
+  <button mat-raised-button color="warn" mat-dialog-close><mat-icon>close</mat-icon> Cancel</button>
 </mat-dialog-actions>
-
-<!-- <div class="row">
-    <mat-radio-group color="primary" aria-label="Select an option">
-        <mat-label>1. Instructor's preparedeness on the subject matter</mat-label>
-        <mat-radio-button value="1">1</mat-radio-button>
-        <mat-radio-button value="2">2</mat-radio-button>
-        <mat-radio-button value="3">3</mat-radio-button>
-        <mat-radio-button value="4">4</mat-radio-button>
-        <mat-radio-button value="5">5</mat-radio-button>
-    </mat-radio-group>
-</div> -->
 

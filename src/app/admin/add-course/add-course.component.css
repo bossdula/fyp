@@ -1,0 +1,8 @@
+.content {
+    padding-top: 18px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;   
+}
