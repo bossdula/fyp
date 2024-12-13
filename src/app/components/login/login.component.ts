@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../interfaces/auth';
+// import { User } from '../../interfaces/auth';
 import { ToastService } from '../../shared/services/notify/toast.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
@@ -45,11 +45,12 @@ import Swal from 'sweetalert2';
   providers: [AuthService, ToastService]
 })
 export class LoginComponent implements OnInit {
+  loginData: any;
 
   ngOnInit(): void {
-    // if (this.authService.ifLoggedIn()) {
-    //   this.router.navigate(['/home']);
-    // }
+    if (this.authService.ifLoggedIn()) {
+      this.router.navigate(['/home']);
+    }
   }
 
   loginForm = this.fb.group({
@@ -64,53 +65,79 @@ export class LoginComponent implements OnInit {
     private toastS: ToastService
   ) {}
 
-  loginUser(){
-    const {regNo, password} = this.loginForm.value;
-    
-    // this.authService.getUserByRegNo(regNo as string).subscribe(
-    //   response => {
-    //     if(response.length > 0 && response[0].password === password) {
-    //       sessionStorage.setItem('regNo', regNo as string);
-    //       this.router.navigateByUrl('home');
 
-    //       const Toast = Swal.mixin({
-    //         toast: true,
-    //         position: "top-end",
-    //         showConfirmButton: false,
-    //         timer: 3000,
-    //         timerProgressBar: true,
-    //         didOpen: (toast) => { 
-    //           toast.onmouseenter = Swal.stopTimer;
-    //           toast.onmouseleave = Swal.resumeTimer;
-    //         }
-    //       });
-    //       Toast.fire({
-    //         icon: "success",
-    //         title: "Login successfully!"
-    //       });
-
-    //     } else {
-    //       const Toast = Swal.mixin({
-    //         toast: true,
-    //         position: "top-end",
-    //         showConfirmButton: false,
-    //         timer: 3000,
-    //         timerProgressBar: true,
-    //         didOpen: (toast) => {
-    //           toast.onmouseenter = Swal.stopTimer;
-    //           toast.onmouseleave = Swal.resumeTimer;
-    //         }
-    //       });
-    //       Toast.fire({
-    //         icon: "error",
-    //         title: "Invalid credentials"
-    //       });
-    //     }
-    //   },
-    //   error => console.log(error)
-    // )
+  loginUser() {
+    // Get values from the form
+    const { regNo, password } = this.loginForm.value;
   
+    // Check if form is valid
+    if (this.loginForm.invalid) {
+      // this.toastS.showError("Please fill in all fields!");
+      return;
+    }
+  
+    const loginData = { regNo, password };
+  
+    // Call authService to submit login data
+    this.authService.submitLogin(loginData).subscribe(
+      response => {
+        if (response.status === 200) {
+          // If login is successful, save to sessionStorage or redirect
+          // sessionStorage.setItem('regNo', regNo);
+  
+          // Navigate to the home page
+          this.router.navigateByUrl('/home');
+  
+          // Show success toast
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+  
+          Toast.fire({
+            icon: 'success',
+            title: 'Login successful!'
+          });
+  
+        } else {
+          // Show error toast if credentials are invalid
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+  
+          Toast.fire({
+            icon: 'error',
+            title: 'Invalid credentials'
+          });
+        }
+      },
+      error => {
+        console.error('Login error:', error);
+        // this.toastS.showError('An error occurred. Please try again later.');
+      }
+    );
   }
-
-
 }
+
+
+
+
+
+
+
+

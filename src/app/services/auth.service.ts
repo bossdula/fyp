@@ -8,25 +8,38 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 
-
 export class AuthService {
 
-  // private baseUrl = 'http://localhost:3000';
-
-  private apiUrl = 'http://localhost:8080/my-php-backend/register.php';
+  private apiUrl = 'http://localhost:8080/my-php-backend';
 
   constructor(private http: HttpClient) { }
 
   submitForm(data: any): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
-    return this.http.post(this.apiUrl, data, { headers });
+    return this.http.post(`${this.apiUrl}/registerPDO.php`, data, { headers });
   }
 
+  submitLogin(data: any): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post(`${this.apiUrl}/login.php`, data, { headers });
+  }
+
+  ifLoggedIn(): boolean {
+      if(sessionStorage.getItem('regNo')) {
+        return true;
+      } else {
+        return false;
+      }
+  
+  
+}
+}
 
 
 
+// private baseUrl = 'http://localhost:3000';
 
-  // registerUser(userDetails: User) {
+// registerUser(userDetails: User) {
   //   return this.http.post(`${this.baseUrl}/users`, userDetails);
   // }
 
@@ -46,5 +59,3 @@ export class AuthService {
   //   }
 
   // }
-  
-}
