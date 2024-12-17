@@ -16,7 +16,7 @@ export class AuthService {
 
   submitForm(data: any): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
-    return this.http.post(`${this.apiUrl}/registerPDO.php`, data, { headers });
+    return this.http.post(`${this.apiUrl}/registerOOP.php`, data, { headers });
   }
 
   submitLogin(data: any): Observable<any> {
